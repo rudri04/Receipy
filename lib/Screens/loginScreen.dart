@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:receipy/Screens/forgetpassword.dart';
 import 'package:receipy/Utils/Colors.dart';
 import 'package:receipy/Utils/icons.dart';
 import 'package:receipy/Widgets/button.dart';
@@ -62,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Image.asset(AppIcons.message),
                   ),
                   controller: email_con,
-                  hintText: 'Enter Email Address',
+                  hintText: 'Enter Email Address', textInputType: TextInputType.emailAddress,
                 ),
                 const SizedBox(
                   height: 15,
@@ -103,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 48.0,
                       child: Image.asset(icon ? AppIcons.show : AppIcons.hide),
                     ),
-                  ),
+                  ), textInputType: TextInputType.visiblePassword,
                 ),
                 const SizedBox(
                   height: 25,
@@ -119,7 +120,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Center(
                     child: CustomTextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) =>
+                                      const ForgetPasswordScreen()));
+                        },
                         data: 'Forgot Password?',
                         color: ColorsPalete.Dark,
                         size: 16)),
@@ -133,61 +140,78 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.normal,
                       color: ColorsPalete.Grey2),
                 ),
-
-                const SizedBox(height: 15,),
-                Center(
-                  child: Container(
-                    width:327,
-                    child: InkWell(
-                      onTap: (){},
-                      child: Container(
-                        height: 54,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Color(0xFFF06155)
-                        ),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(AppIcons.google,height: 25,width: 25,),
-                              const SizedBox(width: 10,),
-                              CustomText(data: 'Login with Google', fontsize: 16, fontWeight: FontWeight.bold, color: ColorsPalete.white)
-                            ],
-                          )
-                        ),
-                        ),
-                      ),
-                    ),
+                const SizedBox(
+                  height: 15,
                 ),
-
-                const SizedBox(height: 15,),
                 Center(
                   child: Container(
-                    width:327,
+                    width: 327,
                     child: InkWell(
-                      onTap: (){},
+                      onTap: () {},
                       child: Container(
                         height: 54,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            color: Color(0xFF1E76D6)
-                        ),
+                            color: Color(0xFFF06155)),
                         child: Center(
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(AppIcons.facebook,height: 25,width: 25,),
-                                const SizedBox(width: 10,),
-                                CustomText(data: 'Login with Facebook', fontsize: 16, fontWeight: FontWeight.bold, color: ColorsPalete.white)
-                              ],
-                            )
-                        ),
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              AppIcons.google,
+                              height: 25,
+                              width: 25,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            CustomText(
+                                data: 'Login with Google',
+                                fontsize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: ColorsPalete.white)
+                          ],
+                        )),
                       ),
                     ),
                   ),
                 ),
-
+                const SizedBox(
+                  height: 15,
+                ),
+                Center(
+                  child: Container(
+                    width: 327,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        height: 54,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: Color(0xFF1E76D6)),
+                        child: Center(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              AppIcons.facebook,
+                              height: 25,
+                              width: 25,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            CustomText(
+                                data: 'Login with Facebook',
+                                fontsize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: ColorsPalete.white)
+                          ],
+                        )),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

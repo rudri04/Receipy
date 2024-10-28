@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:receipy/Screens/loginScreen.dart';
 import 'package:receipy/Utils/Colors.dart';
 import 'package:receipy/Utils/Images.dart';
 import 'package:receipy/Widgets/button.dart';
@@ -13,15 +14,18 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorsPalete.Secondary,
         actions: [
-          TextButton(
-            onPressed: () {
-              // Define what happens when 'Later' is tapped
-            },
-            child: CustomText(
-              data: 'Later',
-              fontsize: 18,
-              fontWeight: FontWeight.bold,
-              color: ColorsPalete.white,
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: TextButton(
+              onPressed: () {
+                // Define what happens when 'Later' is tapped
+              },
+              child: CustomText(
+                data: 'Later',
+                fontsize: 18,
+                fontWeight: FontWeight.bold,
+                color: ColorsPalete.white,
+              ),
             ),
           ),
         ],
@@ -40,7 +44,9 @@ class Homepage extends StatelessWidget {
             const SizedBox(height: 10,),
             CustomText(data: 'goals with happiness', fontsize: 28, fontWeight: FontWeight.bold, color: ColorsPalete.white),
             const SizedBox(height: 30,),
-            CustomButton(OnTap: (){}, buttonColor: ColorsPalete.primary, textColor: ColorsPalete.white, data: 'Login'),
+            CustomButton(OnTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginScreen()));
+            }, buttonColor: ColorsPalete.primary, textColor: ColorsPalete.white, data: 'Login'),
             CustomTextButton(onPressed: (){}, data: 'Create New Account', color: ColorsPalete.white, size: 16)
           ],
         ),

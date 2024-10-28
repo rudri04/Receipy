@@ -17,13 +17,13 @@ class _CustomButtonState extends State<CustomButton> {
   var size = MediaQuery.of(context).size;
   var width = size.width;
     return Container(
-      width: width * .85,
+      width: 327,
       child: InkWell(
         onTap: widget.OnTap,
         child: Container(
           height: 54,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(16),
             color: widget.buttonColor
           ),
           child: Center(

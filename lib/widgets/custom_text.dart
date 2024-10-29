@@ -10,12 +10,14 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
         data,
+      softWrap: true,
       style: TextStyle(
         fontSize: fontsize,
         fontWeight: fontWeight,
         color: color,
         height: height,
-        
+        overflow: TextOverflow.fade,
+
       ),
     );
   }

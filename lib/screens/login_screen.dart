@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:receipy/Screens/forgetpassword.dart';
-import 'package:receipy/Utils/Colors.dart';
-import 'package:receipy/Utils/icons.dart';
-import 'package:receipy/Widgets/button.dart';
-import 'package:receipy/Widgets/text.dart';
-import 'package:receipy/Widgets/textfield.dart';
+import 'package:receipy/Screens/forgetpassword_screen.dart';
+import 'package:receipy/Utils/constants/Colors.dart';
+import 'package:receipy/Utils/constants/icons.dart';
+import 'package:receipy/Widgets/custom_button.dart';
+import 'package:receipy/Widgets/custom_text.dart';
+import 'package:receipy/Widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,7 +14,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool obscure = true, icon = true;
+  bool obscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomText(
-                  data: 'Email Address',
-                  fontsize: 16,
-                  fontWeight: FontWeight.normal,
-                  color: ColorsPalete.Dark,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+
                 CustomTextField(
                   validator: (value) {},
                   prefixIcon: Container(
@@ -63,20 +55,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Image.asset(AppIcons.message),
                   ),
                   controller: email_con,
-                  hintText: 'Enter Email Address', textInputType: TextInputType.emailAddress,
+                  hintText: 'Enter Email Address', textInputType: TextInputType.emailAddress, text: 'Email Address',
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                CustomText(
-                  data: 'Password',
-                  fontsize: 16,
-                  fontWeight: FontWeight.normal,
-                  color: ColorsPalete.Dark,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+
                 CustomTextField(
                   validator: (value) {},
                   prefixIcon: Container(
@@ -92,7 +76,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
-                        icon = !icon;
                         obscure = !obscure;
                       });
                       // textFieldFocusNode.requestFocus();
@@ -102,9 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
                       width: 48.0,
                       height: 48.0,
-                      child: Image.asset(icon ? AppIcons.show : AppIcons.hide),
+                      child: Image.asset(obscure ? AppIcons.hide : AppIcons.show),
                     ),
-                  ), textInputType: TextInputType.visiblePassword,
+                  ), textInputType: TextInputType.visiblePassword, text: 'Password',
                 ),
                 const SizedBox(
                   height: 25,
@@ -116,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         textColor: ColorsPalete.white,
                         data: 'Login')),
                 const SizedBox(
-                  height: 23,
+                  height: 12,
                 ),
                 Center(
                     child: CustomTextButton(
@@ -144,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 15,
                 ),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: 327,
                     child: InkWell(
                       onTap: () {},
@@ -152,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 54,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            color: Color(0xFFF06155)),
+                            color: const Color(0xFFF06155)),
                         child: Center(
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -167,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             CustomText(
                                 data: 'Login with Google',
-                                fontsize: 16,
+                                fontsize: 13,
                                 fontWeight: FontWeight.bold,
                                 color: ColorsPalete.white)
                           ],
@@ -180,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 15,
                 ),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: 327,
                     child: InkWell(
                       onTap: () {},
@@ -188,22 +171,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 54,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            color: Color(0xFF1E76D6)),
+                            color: const Color(0xFF1E76D6)),
                         child: Center(
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
                               AppIcons.facebook,
-                              height: 25,
-                              width: 25,
+                              height: 23,
+                              width: 23,
                             ),
                             const SizedBox(
-                              width: 10,
+                              width: 8,
                             ),
                             CustomText(
                                 data: 'Login with Facebook',
-                                fontsize: 16,
+                                fontsize: 13,
                                 fontWeight: FontWeight.bold,
                                 color: ColorsPalete.white)
                           ],
